@@ -54,8 +54,7 @@ pre_process <- function(txt, myStopwords){
   docs <- tm_map(docs, removeWords, stopwords("english"))
   #remove whitespace
   docs <- tm_map(docs, stripWhitespace)
-  #Good practice to check every now and then
-  
+
   #Stem document -- for clustering and topic modeling
   #docs <- tm_map(docs,stemDocument)
   
