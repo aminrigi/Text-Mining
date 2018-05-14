@@ -23,10 +23,9 @@ plot_sentiments = function(txt, type, ...){
     group_by(sentiment) %>%
     summarise(n = n()) %>%
     ggplot(aes(x=factor(sentiment), y=n))+
-    geom_bar(stat = "identity", fill="green4", alpha=.6) +
+    geom_bar(stat = "identity", fill="blue") +
     labs(x= "Sentiments", y="Word Count",
          title="",
-         fill = "Sentiment")+
-    theme_bw()
+         fill = "Sentiment")
   
 }
