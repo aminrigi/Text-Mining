@@ -79,13 +79,6 @@ source("tm/plot_feelingCloud.R")
 plot_feelingCloud(cleaned_text, 20)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png) Comparing feeling cloud of the text with its word cloud might give you some idea about feeling cloud.
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png) Comparing feeling cloud of the text with its word cloud may give you some idea about feeling cloud.
 
-Including Plots
----------------
-
-You can also embed plots, for example:
-
-![](README_files/figure-markdown_github/pressure-1.png)
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+To Be Continued...
