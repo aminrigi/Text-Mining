@@ -5,15 +5,25 @@
 #' @param txt is a vector of characters. It is assumed the vector
 #' is already pre-processed and cleaned. See pre_process.R
 #' 
+#' @param TFIDF is boolean. Default value is false. If true, the dtm will contain
+#' the TFIDF weight
+#' 
 #' @dtm document-term matrix
 
 
-get_dtm <- function(txt){
+get_dtm <- function(txt, TFIDF = FALSE){
   library(tm)
   docs = Corpus( VectorSource(txt) ) #locading docs
   
   #Create document-term matrix
-  dtm = DocumentTermMatrix(docs)
+  if(TFIDF = FALSE){
+    dtm = DocumentTermMatrix(docs)  
+  }
+  else{
+    dtm <- DocumentTermMatrix(docs, control = list(weighting = weightTfIdf))
+  }
+  
+  
   
   # In topic modeling dtm shouldn't have rows with zero elements.
   #Following rows fix this.
