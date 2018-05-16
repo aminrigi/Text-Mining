@@ -16,7 +16,7 @@
 #'   "just","only", "tag", "link","done",
 #'   "anyone","anyon","everyone","everyon","page","user","reply")
 #' 
-#' @param docs$content the cleaned text
+#' @param docs$content the cleaned text is vector of pre-processed text
 #' 
 
 
@@ -57,6 +57,25 @@ pre_process <- function(txt, myStopwords){
 
   #Stem document -- for clustering and topic modeling
   #docs <- tm_map(docs,stemDocument)
+  
+  
+  #fix up 1) differences between us and aussie english 2) general errors
+  # docs <- tm_map(docs, content_transformer(gsub),
+  #                pattern = "organiz", replacement = "organ")
+  # 
+  # docs <- tm_map(docs, content_transformer(gsub),
+  #                pattern = "organis", replacement = "organ")
+  # 
+  # docs <- tm_map(docs, content_transformer(gsub),
+  #                pattern = "andgovern", replacement = "govern")
+  # 
+  # docs <- tm_map(docs, content_transformer(gsub),
+  #                pattern = "inenterpris", replacement = "enterpris")
+  # 
+  # docs <- tm_map(docs, content_transformer(gsub),
+  #                pattern = "team-", replacement = "team")
+  # 
+  
   
   
   
