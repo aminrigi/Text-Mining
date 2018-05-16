@@ -16,10 +16,10 @@ get_dtm <- function(txt, TFIDF = FALSE){
   docs = Corpus( VectorSource(txt) ) #locading docs
   
   #Create document-term matrix
-  if(TFIDF = FALSE){
+  if(TFIDF == FALSE){
     dtm = DocumentTermMatrix(docs)  
   }
-  else{
+  else{ 
     dtm <- DocumentTermMatrix(docs, control = list(weighting = weightTfIdf))
   }
   
