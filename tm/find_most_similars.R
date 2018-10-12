@@ -1,5 +1,5 @@
 #' @author Amin Rigi
-#' @method find_query
+#' @method find_most_similars
 #'
 #' Returns the n most similar docuements that are similar to the query
 #' @param query is a string (chars)
@@ -49,7 +49,7 @@ find_most_similars <- function(query, txt_array, n = 5){
   }
   
   
-  similarity_df %>%
+  similarity_df = similarity_df %>%
     arrange(desc(score))
   
   
@@ -60,7 +60,7 @@ find_most_similars <- function(query, txt_array, n = 5){
   #if we're interested in inner product distance -- faster, but less accurate
   #calculating the similarity scores
   #doc.scores <- t(query.vectors) %*% tfidf_mat
-  #results.df <- data.frame(querylist = queries_list,doc.scores)
+  #results.df <- data.+frame(querylist = queries_list,doc.scores)
   
   
 }
