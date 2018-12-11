@@ -5,16 +5,16 @@
 #' @param text the target text 
 #' @param n number of terms in wordcloud
 
-plot_wordCloud = function(text, n, ...){
+plot_wordCloud <-  function(text, n, ...){
   library(wordcloud)
   library(tidytext)
   library(dplyr)
   
   
-  tidyText = data_frame(line = 1, document=text)   %>%
+  tidyText  <-  data_frame(document=text)   %>%
     unnest_tokens(word, document)
   
-  words = tidyText %>% 
+  words  <-  tidyText %>% 
     group_by(word) %>% 
     summarise(freq = n()) %>% 
     arrange(desc(freq)) %>%

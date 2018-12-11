@@ -13,11 +13,11 @@
 
 get_dtm <- function(txt, TFIDF = FALSE){
   library(tm)
-  docs = Corpus( VectorSource(txt) ) #locading docs
+  docs <-  Corpus( VectorSource(txt) ) #locading docs
   
   #Create document-term matrix
   if(TFIDF == FALSE){
-    dtm = DocumentTermMatrix(docs)  
+    dtm <-  DocumentTermMatrix(docs)  
   }
   else{ 
     dtm <- DocumentTermMatrix(docs, control = list(weighting = weightTfIdf))
@@ -29,8 +29,8 @@ get_dtm <- function(txt, TFIDF = FALSE){
   #Following rows fix this.
   #from: https://stackoverflow.com/questions/13944252/remove-empty-documents-from-documenttermmatrix-in-r-topicmodels
   
-  ui = unique(dtm$i)
-  dtm = dtm[ui,]
+  ui <-  unique(dtm$i)
+  dtm <-  dtm[ui,]
   
   # This makes a matrix that is 50% empty space, maximum
 	#dtm = removeSparseTerms(dtm, 0.50)

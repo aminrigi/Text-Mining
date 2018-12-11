@@ -65,7 +65,7 @@ extract_topics <-function(dtm, k)
   
   #Run LDA using Gibbs sampling
   
-  ldaOut <-LDA(dtm,k, method="Gibbs", 
+  ldaOut <- LDA(dtm,k, method="Gibbs", 
                control=list(seed = 777))
   
   #toc()
@@ -74,7 +74,29 @@ extract_topics <-function(dtm, k)
   return(ldaOut)
   
   #write out results
-
-
-
 }
+
+
+
+# Finding the optimal number of topics...
+
+# result <- FindTopicsNumber(
+#   dtm,
+#   topics = seq(from = 2, to = 15, by = 1),
+#   metrics = "Griffiths2004",
+#   #metrics = c("Griffiths2004", "CaoJuan2009", "Arun2010", "Deveaud2014"),
+#   method = "Gibbs",
+#   control = list(seed = 77),
+#   mc.cores = 2L,
+#   verbose = TRUE
+# )
+# 
+# FindTopicsNumber_plot(result)
+# 
+# which.max(result$Griffiths2004)+1
+# 
+# ldaOut = extract_topics(dtm, 15) 
+# 
+# ldaOut.terms <- as.matrix(terms(ldaOut,4)) 
+
+

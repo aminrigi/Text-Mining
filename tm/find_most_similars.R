@@ -16,13 +16,13 @@ find_most_similars <- function(query, txt_array, n = 5){
   
   library(lsa)
   library(dplyr)
-  number_of_docs = length(txt_array)
+  number_of_docs <-  length(txt_array)
   #adding the query at the end of documents.
-  txt_array[(number_of_docs)+1] = query
+  txt_array[(number_of_docs)+1] <-  query
   
   source("tm/get_dtm.R")
-  dtm = get_dtm(txt_array, TRUE) # True is for TFIDF weight
-  dtm_mat = as.matrix(dtm)
+  dtm <-  get_dtm(txt_array, TRUE) # True is for TFIDF weight
+  dtm_mat <-  as.matrix(dtm)
   
   #normalizing the dtm
   tfidf_mat <- scale(dtm_mat, center = FALSE,scale = sqrt(colSums(dtm_mat^2)))
@@ -36,11 +36,11 @@ find_most_similars <- function(query, txt_array, n = 5){
   
   
   #initiating a df for reporting similarities
-  similarity_df = rep(0, number_of_docs) %>%
+  similarity_df <-  rep(0, number_of_docs) %>%
     as.data.frame()
   
   colnames(similarity_df) = "score"
-  similarity_df$id = c(1:number_of_docs)
+  similarity_df$id  <-  c(1:number_of_docs)
   
   
   
@@ -49,7 +49,7 @@ find_most_similars <- function(query, txt_array, n = 5){
   }
   
   
-  similarity_df = similarity_df %>%
+  similarity_df <-  similarity_df %>%
     arrange(desc(score))
   
   

@@ -22,8 +22,8 @@
 
 pre_process <- function(txt, myStopwords){
   library(tm)
-  docs =Corpus( VectorSource(txt) ) #locading docs
-  docs = tm_map(docs, content_transformer(tolower) )
+  docs  <- Corpus( VectorSource(txt) ) #locading docs
+  docs <-  tm_map(docs, content_transformer(tolower) )
   
   #This comes handy when we have a weird char and we don't want to fix encoding
   removeWeirdChars = content_transformer(function(x, pattern) 

@@ -9,13 +9,13 @@
 #' @param type can be one of 'nrc', 'loughran', or 'bing' 
 
 
-plot_sentiments = function(txt, type, ...){
+plot_sentiments  <-  function(txt, type="nrc", ...){
   library(tidytext)
   library(tm)
   library(dplyr)
   library(ggplot2)
   
-  tidyText = data_frame(line = 1, document=txt) %>%
+  tidyText <-  data_frame(document=txt) %>%
     unnest_tokens(word, document)
   
   tidyText %>%
@@ -23,9 +23,10 @@ plot_sentiments = function(txt, type, ...){
     group_by(sentiment) %>%
     summarise(n = n()) %>%
     ggplot(aes(x=factor(sentiment), y=n))+
-    geom_bar(stat = "identity", fill="blue") +
+    geom_bar(stat = "identity", fill="darkgreen", alpha = 0.4) +
     labs(x= "Sentiments", y="Word Count",
          title="",
-         fill = "Sentiment")
+         fill = "Sentiment")+
+    theme_bw()
   
 }

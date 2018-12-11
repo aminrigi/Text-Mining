@@ -10,17 +10,17 @@
 #' @param n numbers of terms to be shown in the feeling cloud2
 
 
-plot_feelingCloud2 =  function(text, n, ...){
+plot_feelingCloud2  <-   function(text, n, ...){
   library(wordcloud2)
   library(tidytext)
   library(dplyr)
   library(tm)
   
-  text_tidy =  data_frame(line = 1, document=text)   %>%
+  text_tidy  <-   data_frame(document=text)   %>%
     unnest_tokens(word, document)
   
   
-  text_freq = text_tidy %>%
+  text_freq <-  text_tidy %>%
     inner_join(get_sentiments("nrc"), by = "word") %>%
     count(word, sort = TRUE) %>%
     head(n=50) 

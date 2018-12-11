@@ -14,26 +14,26 @@
 #' @extracted is a dataframe that contains keywords and their repitition
 
 
-extract_words = function(source, keywords, stopWords="", number=10){
+extract_words  <-  function(source, keywords, stopWords="", number=10){
   
-  source_tidy = data_frame(line = 1, document=source)   %>%
+  source_tidy <-  data_frame(document=source)   %>%
     unnest_tokens(word, document)
   
   
-  keywords_tidy = data_frame(line = 1, document=keywords)   %>%
+  keywords_tidy  <-  data_frame(document=keywords)   %>%
     unnest_tokens(word, document)
   
-  stopWords_tidy = data_frame(line = 1, document=stopWords)   %>%
+  stopWords_tidy  <-  data_frame(document=stopWords)   %>%
     unnest_tokens(word, document)
   
-  extracted = source_tidy %>%
+  extracted <-  source_tidy %>%
     inner_join(keywords_tidy) %>%
     anti_join(stopWords_tidy) %>%
     group_by(word) %>%
     mutate(freq = n()) %>%
     unique() %>%
     arrange(desc(freq)) %>%
-    head(n=number)
+    head(n = number)
   
   return(extracted)
   
