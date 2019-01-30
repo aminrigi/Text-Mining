@@ -80,16 +80,7 @@ extract_topics <-function(dtm, k)
 
 # Finding the optimal number of topics...
 
-# result <- FindTopicsNumber(
-#   dtm,
-#   topics = seq(from = 2, to = 15, by = 1),
-#   metrics = "Griffiths2004",
-#   #metrics = c("Griffiths2004", "CaoJuan2009", "Arun2010", "Deveaud2014"),
-#   method = "Gibbs",
-#   control = list(seed = 77),
-#   mc.cores = 2L,
-#   verbose = TRUE
-# )
+
 # 
 # FindTopicsNumber_plot(result)
 # 

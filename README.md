@@ -2,9 +2,20 @@ My Text Mining Repository
 ================
 Amin Rigi
 
-Last Update: 2018-05-15
+Last Update: 2019-01-30
 
-After few months of text mining for few industry projects, I decided to neatly pack the functions that I use the most into a single place. This repository is such a place. I eventually will update this repository. I start with simple text cleaning and tidy text mining and then will add ML-based tools.
+After few months of text mining for few industry projects, I decided to neatly pack the functions that I used the most into a single place. I eventually will update this repository. I start with simple text cleaning and tidy text mining and then will add ML-based tools.
+
+Required packages:
+
+-   [`tm`](https://cran.r-project.org/web/packages/tm/index.html)
+-   [`tidytext`]()
+-   [`tidyverse`]()
+-   [`wordcloud`]()
+-   [`wordcloud2`]()
+-   [`topicmodels`]()
+-   [`ldatuning`]()
+-   [`lsa`]()
 
 Text pre-processing
 -------------------
@@ -44,8 +55,10 @@ source("tm/plot_wordCloud2.R")
 plot_wordCloud2(cleaned_text, 20)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
+<!--html_preserve-->
 
+<script type="application/json" data-for="htmlwidget-6822f6b7a0ef17ab2dc1">{"x":{"word":["drawing","grown","boa","one","ups","number","always","picture","constrictor","constrictors","great","hat","six","true","able","another","book","frightened","geography","inside"],"freq":[10,7,6,6,6,5,4,4,3,3,3,3,3,3,2,2,2,2,2,2],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":18,"backgroundColor":"white","gridSize":0,"minRotation":0.628318530717959,"maxRotation":0.628318530717959,"shuffle":true,"rotateRatio":3,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+<!--/html_preserve-->
 ``` r
 source("tm/plot_wordCloud.R")
 plot_wordCloud(cleaned_text, 20)
@@ -94,6 +107,6 @@ plot_sentiments(cleaned_text, "loughran")
 Finding Document-Term Matrix
 ----------------------------
 
-Document-term matrix or dtm is one of the most useful tools that maps a set of documents to vector space model and enables us to do variety of text mining algorithms. Function [`tm/get_dtm`](https://github.com/aminrigi/Text-Mining/blob/master/tm/get_dtm.R) gets a vector of charachters. It is assumed the vector is already cleaned using [`tm/pre_process`](https://github.com/aminrigi/Text-Mining/blob/master/tm/pre_process.R) (we really don't want to pass unclean text get\_dtm!).
+Document-term matrix or dtm is one of the most useful tools that maps a set of documents to vector space model and enables us to do variety of text mining algorithms. Function [`tm/get_dtm`](https://github.com/aminrigi/Text-Mining/blob/master/tm/get_dtm.R) gets a vector of charachters. It is assumed the vector is already cleaned using [`tm/pre_process`](https://github.com/aminrigi/Text-Mining/blob/master/tm/pre_process.R) (we really don't want to pass unclean text to get\_dtm!). The document-term matrix maps a set of documents into the vector space model. In other words, each document will be represented by a vector (a row in dtm). A good source to know more about text mining in R and vector space modeling is [`Data Science Mojo`](https://www.youtube.com/watch?v=4vuw0AsHeGw&index=1&list=PL8eNk_zTBST8olxIRFoo0YeXxEOkYdoxi).
 
 To Be Continued...
