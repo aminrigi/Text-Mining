@@ -4,7 +4,7 @@ Amin Rigi
 
 Last Update: 2019-01-30
 
-After few months of text mining for few industry projects, I decided to neatly pack the functions that I used the most into a single place. I eventually will update this repository. I start with simple text cleaning and tidy text mining and then will add ML-based tools.
+After a few months of text mining for few industry projects, I decided to neatly pack the functions that I used the most into a single place. I eventually will update this repository. I start with simple text cleaning and tidy text mining and then will add ML-based tools.
 
 Required packages:
 
